@@ -7,10 +7,10 @@ import (
 	"math/rand"
 	"testing"
 
-	dag "gx/ipfs/QmVvNkTCx8V9Zei8xuTYTBdUXmbnDRS4iNuw1SztYyhQwQ/go-merkledag"
+	dag "gx/ipfs/QmXxrn75EQSLa4DBYnKYVx2PBKykDigPc6agipaeiAy8SC/go-merkledag"
 
-	posinfo "gx/ipfs/QmPG32VXR5jmpo9q8R9FNdR4Ae97Ky9CiZE6SctJLUB79H/go-ipfs-posinfo"
 	cid "gx/ipfs/QmPSQnBKM9g7BaUcZCvswUJVscQ1ipjmwxN5PXCjkp9EQ7/go-cid"
+	posinfo "gx/ipfs/QmXb5YEnoVxjLRWmjAQHeedXMFhrSN81uixpbNcNUVbhaK/go-ipfs-posinfo"
 	ds "gx/ipfs/QmaRb5yNXKonhbkpNxNawoydk4N6es6b4fPj19sjEKsh5D/go-datastore"
 	blockstore "gx/ipfs/QmcDDgAXDbpDUpadCJKLr49KYR4HuL7T8Z1dZTHt6ixsoR/go-ipfs-blockstore"
 )

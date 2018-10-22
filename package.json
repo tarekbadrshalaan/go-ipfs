@@ -189,15 +189,15 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmdDXJs4axxefSPgK6Y1QhpJWKuDPnGJiqgq4uncb4rFHL",
+      "hash": "QmfDErPFSJfmpxcFTSsrchKcpAwa6ynoXdxHWDMeYUePDm",
       "name": "go-ipld-format",
-      "version": "0.6.0"
+      "version": "0.7.0"
     },
     {
       "author": "whyrusleeping",
-      "hash": "Qma8k32hzB25pgmdTPQr2DCa2DT2v7yCyGadMiYVKF1pyH",
+      "hash": "QmYSmuj6yt49r3BuU5Ahb9W6zpHwu9zo5rJWiZBCeNGGR9",
       "name": "go-ipld-cbor",
-      "version": "1.5.2"
+      "version": "1.5.3"
     },
     {
       "author": "lgierth",
@@ -339,9 +339,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmRNxeMQs2eVPouLxwa4tN72yTLLgWAi1cChXqgdEz5Ko4",
+      "hash": "QmVjyWgdgwZerfD7ZPaVxFpDWmj1R37xwKwBqR6cGZ6VnZ",
       "name": "go-ipld-git",
-      "version": "0.3.0"
+      "version": "0.3.1"
     },
     {
       "hash": "QmSW4uNHbvQia8iZDXzbwjiyHQtnyo9aFqfQAMasj3TJ6Y",
@@ -398,9 +398,9 @@
     },
     {
       "author": "hector",
-      "hash": "QmPG32VXR5jmpo9q8R9FNdR4Ae97Ky9CiZE6SctJLUB79H",
+      "hash": "QmXb5YEnoVxjLRWmjAQHeedXMFhrSN81uixpbNcNUVbhaK",
       "name": "go-ipfs-posinfo",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     {
       "author": "hsanjuan",
@@ -506,21 +506,21 @@
     },
     {
       "author": "why",
-      "hash": "QmVvNkTCx8V9Zei8xuTYTBdUXmbnDRS4iNuw1SztYyhQwQ",
+      "hash": "QmXxrn75EQSLa4DBYnKYVx2PBKykDigPc6agipaeiAy8SC",
       "name": "go-merkledag",
-      "version": "1.1.9"
+      "version": "1.1.10"
     },
     {
       "author": "why",
-      "hash": "QmdrpbDgeYH3VxkCciQCJY5LkDYdXtig6unDzQmMxFtWEw",
+      "hash": "QmRPuxdU8Ffeghr9DJcDtCrq6Ag1UJBcsXoa1dy4YMPyrL",
       "name": "go-path",
-      "version": "1.1.9"
+      "version": "1.1.10"
     },
     {
       "author": "why",
-      "hash": "QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5",
+      "hash": "QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo",
       "name": "go-unixfs",
-      "version": "1.1.11"
+      "version": "1.2.0"
     },
     {
       "author": "magik6k",
@@ -536,9 +536,9 @@
     },
     {
       "author": "hsanjuan",
-      "hash": "Qmf5gumjmXpwmn7uDfAvkXbFQ5sHGGbJGccS8znSYmDQaz",
+      "hash": "QmURQ1DJbEYbQXuuPHSTdQ9vfQEsVnqP2hLPxTiYyeAPH1",
       "name": "go-mfs",
-      "version": "0.1.11"
+      "version": "0.1.12"
     },
     {
       "author": "kevina",

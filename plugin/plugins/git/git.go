@@ -11,8 +11,8 @@ import (
 
 	"gx/ipfs/QmPSQnBKM9g7BaUcZCvswUJVscQ1ipjmwxN5PXCjkp9EQ7/go-cid"
 	mh "gx/ipfs/QmPnFwZ2JXKnXgMw8CdBPxn7FWh6LLdjUjxV1fKHuJnkr8/go-multihash"
-	git "gx/ipfs/QmRNxeMQs2eVPouLxwa4tN72yTLLgWAi1cChXqgdEz5Ko4/go-ipld-git"
-	"gx/ipfs/QmdDXJs4axxefSPgK6Y1QhpJWKuDPnGJiqgq4uncb4rFHL/go-ipld-format"
+	git "gx/ipfs/QmVjyWgdgwZerfD7ZPaVxFpDWmj1R37xwKwBqR6cGZ6VnZ/go-ipld-git"
+	"gx/ipfs/QmfDErPFSJfmpxcFTSsrchKcpAwa6ynoXdxHWDMeYUePDm/go-ipld-format"
 )
 
 // Plugins is exported list of plugins that will be loaded

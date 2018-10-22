@@ -21,16 +21,16 @@ import (
 	humanize "gx/ipfs/QmPSBJL4momYnE7DcUyk2DVhD6rH488ZmHBGLbxNdhU44K/go-humanize"
 	cid "gx/ipfs/QmPSQnBKM9g7BaUcZCvswUJVscQ1ipjmwxN5PXCjkp9EQ7/go-cid"
 	routing "gx/ipfs/QmPmFeQ5oY5G6M7aBWggi5phxEPXwsQntE1DFcUzETULdp/go-libp2p-routing"
+	path "gx/ipfs/QmRPuxdU8Ffeghr9DJcDtCrq6Ag1UJBcsXoa1dy4YMPyrL/go-path"
+	resolver "gx/ipfs/QmRPuxdU8Ffeghr9DJcDtCrq6Ag1UJBcsXoa1dy4YMPyrL/go-path/resolver"
 	chunker "gx/ipfs/QmTUTG9Jg9ZRA1EzTPGTDvnwfcfKhDMnqANnP9fe4rSjMR/go-ipfs-chunker"
-	dag "gx/ipfs/QmVvNkTCx8V9Zei8xuTYTBdUXmbnDRS4iNuw1SztYyhQwQ/go-merkledag"
-	ft "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs"
-	"gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs/importer"
-	uio "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs/io"
+	ft "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs"
+	"gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs/importer"
+	uio "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs/io"
+	dag "gx/ipfs/QmXxrn75EQSLa4DBYnKYVx2PBKykDigPc6agipaeiAy8SC/go-merkledag"
 	files "gx/ipfs/QmZMWMvWMVKCbHetJ4RgndbuEF1io2UpUxwQwtNjtYPzSC/go-ipfs-files"
-	ipld "gx/ipfs/QmdDXJs4axxefSPgK6Y1QhpJWKuDPnGJiqgq4uncb4rFHL/go-ipld-format"
-	path "gx/ipfs/QmdrpbDgeYH3VxkCciQCJY5LkDYdXtig6unDzQmMxFtWEw/go-path"
-	resolver "gx/ipfs/QmdrpbDgeYH3VxkCciQCJY5LkDYdXtig6unDzQmMxFtWEw/go-path/resolver"
 	multibase "gx/ipfs/QmekxXDhCxCJRNuzmHreuaT3BsuJcsjcXWNrtV9C8DRHtd/go-multibase"
+	ipld "gx/ipfs/QmfDErPFSJfmpxcFTSsrchKcpAwa6ynoXdxHWDMeYUePDm/go-ipld-format"
 )
 
 const (

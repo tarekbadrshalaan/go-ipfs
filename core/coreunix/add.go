@@ -14,19 +14,19 @@ import (
 	coreiface "github.com/ipfs/go-ipfs/core/coreapi/interface"
 	"github.com/ipfs/go-ipfs/pin"
 
-	posinfo "gx/ipfs/QmPG32VXR5jmpo9q8R9FNdR4Ae97Ky9CiZE6SctJLUB79H/go-ipfs-posinfo"
 	cid "gx/ipfs/QmPSQnBKM9g7BaUcZCvswUJVscQ1ipjmwxN5PXCjkp9EQ7/go-cid"
 	chunker "gx/ipfs/QmTUTG9Jg9ZRA1EzTPGTDvnwfcfKhDMnqANnP9fe4rSjMR/go-ipfs-chunker"
-	dag "gx/ipfs/QmVvNkTCx8V9Zei8xuTYTBdUXmbnDRS4iNuw1SztYyhQwQ/go-merkledag"
-	unixfs "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs"
-	balanced "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs/importer/balanced"
-	ihelper "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs/importer/helpers"
-	trickle "gx/ipfs/QmWE6Ftsk98cG2MTVgH4wJT8VP2nL9TuBkYTrz9GSqcsh5/go-unixfs/importer/trickle"
+	mfs "gx/ipfs/QmURQ1DJbEYbQXuuPHSTdQ9vfQEsVnqP2hLPxTiYyeAPH1/go-mfs"
+	unixfs "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs"
+	balanced "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs/importer/balanced"
+	ihelper "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs/importer/helpers"
+	trickle "gx/ipfs/QmVac87TLEzTU4m8yJR8LjwwytT9GB5j3pWnYNgP4DwdEo/go-unixfs/importer/trickle"
+	posinfo "gx/ipfs/QmXb5YEnoVxjLRWmjAQHeedXMFhrSN81uixpbNcNUVbhaK/go-ipfs-posinfo"
+	dag "gx/ipfs/QmXxrn75EQSLa4DBYnKYVx2PBKykDigPc6agipaeiAy8SC/go-merkledag"
 	logging "gx/ipfs/QmZChCsSt8DctjceaL56Eibc29CVQq4dGKRXC5JRZ6Ppae/go-log"
 	files "gx/ipfs/QmZMWMvWMVKCbHetJ4RgndbuEF1io2UpUxwQwtNjtYPzSC/go-ipfs-files"
 	bstore "gx/ipfs/QmcDDgAXDbpDUpadCJKLr49KYR4HuL7T8Z1dZTHt6ixsoR/go-ipfs-blockstore"
-	ipld "gx/ipfs/QmdDXJs4axxefSPgK6Y1QhpJWKuDPnGJiqgq4uncb4rFHL/go-ipld-format"
-	mfs "gx/ipfs/Qmf5gumjmXpwmn7uDfAvkXbFQ5sHGGbJGccS8znSYmDQaz/go-mfs"
+	ipld "gx/ipfs/QmfDErPFSJfmpxcFTSsrchKcpAwa6ynoXdxHWDMeYUePDm/go-ipld-format"
 )
 
 var log = logging.Logger("coreunix")
@@ -49,11 +49,14 @@ type Object struct {
 
 // NewAdder Returns a new Adder used for a file add operation.
 func NewAdder(ctx context.Context, p pin.Pinner, bs bstore.GCBlockstore, ds ipld.DAGService) (*Adder, error) {
+	batch := ipld.NewBatch(ctx, ds)
+
 	return &Adder{
 		ctx:        ctx,
 		pinning:    p,
 		blockstore: bs,
 		dagService: ds,
+		batchingDS: batch,
 		Progress:   false,
 		Hidden:     true,
 		Pin:        true,
@@ -69,6 +72,7 @@ type Adder struct {
 	pinning    pin.Pinner
 	blockstore bstore.GCBlockstore
 	dagService ipld.DAGService
+	batchingDS *ipld.Batch
 	Out        chan<- interface{}
 	Progress   bool
 	Hidden     bool
@@ -114,8 +118,11 @@ func (adder *Adder) add(reader io.Reader) (ipld.Node, error) {
 		return nil, err
 	}
 
+	// Make sure all added nodes are written when done.
+	defer adder.batchingDS.Commit()
+
 	params := ihelper.DagBuilderParams{
-		Dagserv:    adder.dagService,
+		Dagserv:    adder.batchingDS,
 		RawLeaves:  adder.RawLeaves,
 		Maxlinks:   ihelper.DefaultLinksPerBlock,
 		NoCopy:     adder.NoCopy,
